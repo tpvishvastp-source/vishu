@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: staging
+    description: "Raw source data tables"
+    tables:
+      - name: listings
+      - name: bookings
+      - name: hosts 
