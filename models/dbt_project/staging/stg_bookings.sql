@@ -1,12 +1,13 @@
 with source as (
-    select * from {{ source('raw_data', 'bookings') }}
+    select * from {{ source('staging', 'bookings') }}
 )
 
 select
-    id as booking_id,
+    booking_id,
     listing_id,
-    guest_id,
-    start_date,
-    end_date,
-    total_price
+    null as guest_id,
+    booking_date as start_date,
+    dateadd(day, nights_booked, booking_date) as end_date,
+    booking_amount as total_price
 from source 
+

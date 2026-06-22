@@ -1,9 +1,9 @@
 with source as (
-    select * from {{ source('raw_data', 'hosts') }}
+    select * from {{ source('staging', 'hosts') }}
 )
 
 select
-    id as host_id,
-    name as host_name,
+    host_id,
+    host_name,
     is_superhost
 from source 
